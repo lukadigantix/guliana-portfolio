@@ -1,4 +1,5 @@
 import SectionHeading from './SectionHeading'
+import ContactForm from './ContactForm'
 
 export default function Contact() {
   return (
@@ -6,14 +7,15 @@ export default function Contact() {
       <div className="wrapper flex flex-col gap-10">
         <SectionHeading>Contact</SectionHeading>
 
-        <div className="flex flex-col gap-6 ml-0 sm:ml-10">
+        <div className="flex flex-col gap-6">
           <p
             style={{
               fontFamily: 'var(--font-pp-mori)',
               fontWeight: 600,
-              fontSize: '28px',
-              lineHeight: '1.2',
+              fontSize: '40px',
+              lineHeight: '1.3',
               color: '#111',
+              paddingBottom: '16px',
             }}
           >
             Lets Create Something Unique Together
@@ -23,9 +25,9 @@ export default function Contact() {
             style={{
               fontFamily: 'var(--font-roboto)',
               fontWeight: 400,
-              fontSize: '18px',
+              fontSize: '28px',
               lineHeight: '1.7',
-              color: '#000',
+              color: '#111',
             }}
           >
             Lass uns gemeinsam kreative Ideen entfalten.<br />
@@ -35,14 +37,14 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 ml-0 sm:ml-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
           <a
-            href="mailto:hello@unfold-studio.ch"
+            href="mailto:info@unfoldcreativestudio.ch"
             className="flex items-center gap-3 hover:opacity-60 transition-opacity"
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 300,
-              fontSize: '16px',
+              fontSize: '24px',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#111',
@@ -57,14 +59,14 @@ export default function Contact() {
           </a>
 
           <a
-            href="https://www.instagram.com/unfold.studio"
+            href="https://www.instagram.com/unfoldcreativestudio"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 hover:opacity-60 transition-opacity"
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 300,
-              fontSize: '16px',
+              fontSize: '24px',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#111',
@@ -79,6 +81,8 @@ export default function Contact() {
             FOLLOW THE JOURNEY
           </a>
         </div>
+
+        <ContactForm />
       </div>
     </div>
   )

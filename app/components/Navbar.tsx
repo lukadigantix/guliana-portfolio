@@ -4,7 +4,7 @@ import MenuButton from './MenuButton'
 export default function Navbar() {
   return (
     <nav className="wrapper">
-      <div className="flex items-center justify-between pt-6">
+      <div className="flex items-center justify-between py-6">
         <Image
           src="/unfold-logo-final.svg"
           alt="Unfold Creative Studio"

@@ -70,9 +70,9 @@ export default function HowWeWork() {
 
             <p
               style={{
-                fontFamily: "var(--font-roboto)",
+                fontFamily: "var(--font-pp-mori)",
                 fontWeight: 400,
-                fontSize: "16px",
+                fontSize: "18px",
                 lineHeight: "1.6",
                 color: "#222",
               }}

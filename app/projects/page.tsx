@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Contact from '../components/Contact'
 
 const categories = [
@@ -14,12 +15,15 @@ const categories = [
 ]
 
 const projects = [
-  { title: 'PROJEKT\nPLAYLIST', subtitle: 'SFGB 2026', image: '/sw-1.png' },
-  { title: 'BRAND\nIDENTITY', subtitle: 'ARTLUXE 2025', image: '/sw-2.png' },
-  { title: 'WEB\nDESIGN', subtitle: 'BLWRK 2025', image: '/sw-3.png' },
-  { title: 'SOCIAL\nMEDIA', subtitle: 'KAOS 2024', image: '/sw-4.png' },
-  { title: 'PACKAGING\nDESIGN', subtitle: 'BUBULINO 2024', image: '/sw-5.png' },
-  { title: 'PRINT\nEDITORIAL', subtitle: 'SK-CNC 2024', image: '/sw-6.png' },
+  { title: 'PROJEKT\nPLAYLIST', subtitle: 'SFGB 2026', image: '/projekplaylistcover.jpg', slug: 'projekt-playlist' },
+  { title: 'LOGO\nDESIGN', subtitle: 'Restaurant Kaos', image: '/kaoscover.png' },
+  { title: 'BRANDING', subtitle: 'The Pour Class', image: '/thepourcover.png' },
+  { title: 'LOGO\nDESIGN', subtitle: 'Zytgeischt Gwafför', image: '/gwafforcover.png' },
+  { title: 'REBRANDING', subtitle: 'SK-CNC Solutions', image: '/skcnccover.png' },
+  { title: 'WELTFORMAT\nPLAKAT', subtitle: 'SFGB 2024', image: '/weltcover.png' },
+  { title: 'LORRAINECHILBI\nPLAKAT', subtitle: 'SFGB 2025', image: '/lobrainecover.png' },
+  { title: 'PACKAGING\nDESIGN', subtitle: 'BUBULINO', image: '/bubulinocover.png' },
+  { title: 'WEBREDESIGN', subtitle: 'Kramer', image: '/weberdesign.png' },
 ]
 
 export default function ProjectsPage() {
@@ -30,7 +34,7 @@ export default function ProjectsPage() {
           style={{
             fontFamily: 'var(--font-pp-mori)',
             fontWeight: 600,
-            fontSize: 'clamp(28px, 4vw, 60px)',
+            fontSize: '84px',
             lineHeight: '1.1',
             textTransform: 'uppercase',
             color: '#111',
@@ -44,11 +48,11 @@ export default function ProjectsPage() {
           style={{
             fontFamily: 'var(--font-pp-mori)',
             fontWeight: 400,
-            fontSize: 'clamp(12px, 1.2vw, 18px)',
-            lineHeight: '1.8',
+            fontSize: '36px',
+            lineHeight: '1.4',
             color: '#111',
             textTransform: 'uppercase',
-            letterSpacing: '0.03em',
+            letterSpacing: '0.04em',
             maxWidth: '70%',
           }}
         >
@@ -70,7 +74,7 @@ export default function ProjectsPage() {
             <div
               className="flex flex-col justify-end p-8 sm:p-12 flex-shrink-0"
               style={{
-                width: 'clamp(180px, 30%, 420px)',
+                width: 'clamp(180px, 30%, 550px)',
        
                 backgroundColor: '#F3F3F3',
               }}
@@ -79,7 +83,7 @@ export default function ProjectsPage() {
                 style={{
                   fontFamily: 'var(--font-pp-mori)',
                   fontWeight: 600,
-                  fontSize: 'clamp(16px, 1.8vw, 28px)',
+                  fontSize: '42px',
                   lineHeight: '1.1',
                   textTransform: 'uppercase',
                   color: '#111',
@@ -93,7 +97,7 @@ export default function ProjectsPage() {
                 style={{
                   fontFamily: 'var(--font-pp-mori)',
                   fontWeight: 400,
-                  fontSize: 'clamp(12px, 1vw, 16px)',
+                  fontSize: '36px',
                   textTransform: 'none',
                   color: '#111',
                 }}
@@ -113,19 +117,48 @@ export default function ProjectsPage() {
             </div>
           )
           return (
-            <div
+            <Link
               key={project.title}
-              className="flex overflow-hidden"
-              style={{ height: 'clamp(300px, 42vw, 600px)' }}
+              href={(project as { slug?: string }).slug ? `/projects/${(project as { slug?: string }).slug}` : '#'}
+              style={{ display: 'block', textDecoration: 'none' }}
             >
-              {isEven ? <>{infoPanel}{imagePanel}</> : <>{imagePanel}{infoPanel}</>}
-            </div>
+              <div
+                className="flex overflow-hidden"
+                style={{ height: 'clamp(300px, 42vw, 600px)' }}
+              >
+                {isEven ? <>{infoPanel}{imagePanel}</> : <>{imagePanel}{infoPanel}</>}
+              </div>
+            </Link>
           )
         })}
       </div>
 
-      <div className='mt-30'>
-        <Contact />
+      {/* Contact + logo overlay */}
+      <div className="relative overflow-hidden">
+        <div
+          style={{
+            position: 'absolute',
+            right: '-100px',
+            top: '5%',
+            width: 'clamp(300px, 35vw, 500px)',
+            opacity: 1,
+            transform: 'rotate(12deg)',
+            pointerEvents: 'none',
+            zIndex: 10,
+          }}
+        >
+          <Image
+            src="/black-logo.png"
+            alt=""
+            width={500}
+            height={500}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+
+        <div className='mt-30'>
+          <Contact />
+        </div>
       </div>
     </>
   )

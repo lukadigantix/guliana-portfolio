@@ -7,9 +7,9 @@ import Link from 'next/link'
 const links = [
   { label: 'HOME', href: '/' },
   { label: 'PROJECTS', href: '/projects' },
-  { label: 'STUDIO', href: '#' },
-  { label: 'SERVICES', href: '#' },
-  { label: 'CONTACT', href: '#' },
+  { label: 'STUDIO', href: '/studio' },
+  { label: 'SERVICES', href: '/services' },
+  { label: 'CONTACT', href: '/contact' },
 ]
 
 export default function MenuButton() {

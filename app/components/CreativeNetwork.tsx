@@ -21,7 +21,7 @@ export default function CreativeNetwork() {
                 style={{
                   fontFamily: 'var(--font-pp-mori)',
                   fontWeight: 600,
-                  fontSize: 'clamp(32px, 4vw, 60px)',
+                  fontSize: '46px',
                   lineHeight: '1.1',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -51,12 +51,12 @@ export default function CreativeNetwork() {
           {/* Right — partners */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:-ml-24">
             {partners.map((p) => (
-              <div key={p.name} className="flex flex-col items-center gap-4 text-center">
+              <div key={p.name} className="flex flex-col items-center gap-2 text-center">
                 {/* Icon placeholder — replace with <Image> when icons are ready */}
-                <div className="w-36 h-36 rounded-full overflow-hidden flex items-center justify-center">
-                  <Image src={p.icon!} alt={p.name} width={144} height={144} className="w-full h-full object-cover" />
+                <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center">
+                  <Image src={p.icon!} alt={p.name} width={82} height={82} className="w-full h-full object-cover" />
                 </div>
-                <p style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: '18px', color: '#fff', letterSpacing: '0.05em' }}>
+                <p className="pt-4" style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: '18px', color: '#fff', letterSpacing: '0.05em' }}>
                   {p.name}
                 </p>
                 <p style={{ fontFamily: 'var(--font-roboto)', fontWeight: 400, fontSize: '17px', color: '#fff', lineHeight: '1.4' }}>
