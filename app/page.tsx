@@ -26,7 +26,7 @@ export default function Home() {
           style={{
             position: 'absolute',
             right: '-100px',
-            bottom: '38%',
+            bottom: '28%',
             width: 'clamp(300px, 35vw, 500px)',
             opacity: 1,
             transform: 'rotate(12deg)',

@@ -13,7 +13,6 @@ export default function SectionHeading({ children, color = '#111' }: SectionHead
         lineHeight: '1.1',
         textTransform: 'uppercase',
         color,
-        paddingLeft: '60px',
       }}
     >
       {children}

@@ -1,5 +1,4 @@
 import SectionHeading from './SectionHeading'
-import ContactForm from './ContactForm'
 
 export default function Contact() {
   return (
@@ -81,8 +80,6 @@ export default function Contact() {
             FOLLOW THE JOURNEY
           </a>
         </div>
-
-        <ContactForm />
       </div>
     </div>
   )
