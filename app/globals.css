@@ -21,7 +21,7 @@ html {
   animation-play-state: paused;
 }
 
-/* ── Lenis smooth/momentum scrolling (used by <SmoothScroll/>) ── */
+/* ── Lenis smooth/momentum scrolling (used by <SmoothScroll/>) --- ── */
 html.lenis,
 html.lenis body {
   height: auto;
