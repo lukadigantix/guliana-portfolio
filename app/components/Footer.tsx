@@ -46,9 +46,6 @@ export default function Footer() {
               <a href="mailto:info@unfoldcreativestudio.ch" className="hover:opacity-50 transition-opacity">
                 <svg width="30" height="24" viewBox="0 0 28 22" fill="none"><rect x="1" y="1" width="26" height="20" rx="2" stroke="white" strokeWidth="1.5"/><path d="M1 3L14 12.5L27 3" stroke="white" strokeWidth="1.5"/></svg>
               </a>
-              <a href="https://www.linkedin.com/company/unfoldcreativestudio" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
-                <svg width="28" height="28" viewBox="0 0 26 26" fill="none"><rect x="1" y="1" width="24" height="24" rx="4" stroke="white" strokeWidth="1.5"/><path d="M7 10.5V19" stroke="white" strokeWidth="1.5" strokeLinecap="square"/><circle cx="7" cy="7.5" r="1.2" fill="white"/><path d="M12 19V14.5C12 12.567 13.567 11 15.5 11C17.433 11 19 12.567 19 14.5V19" stroke="white" strokeWidth="1.5" strokeLinecap="square"/><path d="M12 10.5V19" stroke="white" strokeWidth="1.5" strokeLinecap="square"/></svg>
-              </a>
             </div>
           </div>
 
