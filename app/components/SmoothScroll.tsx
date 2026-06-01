@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Lenis from 'lenis'
 
 /**
@@ -11,6 +12,12 @@ import Lenis from 'lenis'
  * Fully disabled when the user prefers reduced motion.
  */
 export default function SmoothScroll() {
+  const pathname = usePathname()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
