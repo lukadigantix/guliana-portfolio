@@ -180,7 +180,7 @@ export default function ServicesPage() {
           style={{
             fontFamily: 'var(--font-pp-mori)',
             fontWeight: 600,
-            fontSize: '140px',
+            fontSize: 'clamp(64px, 18vw, 140px)',
             lineHeight: '1',
             letterSpacing: '-0.02em',
             color: '#111',
@@ -198,7 +198,7 @@ export default function ServicesPage() {
             style={{
               fontFamily: 'var(--font-pp-mori)',
               fontWeight: 600,
-              fontSize: '100px',
+              fontSize: 'clamp(38px, 9vw, 100px)',
               lineHeight: '1.05',
               color: '#fff',
               textTransform: 'uppercase',
@@ -211,7 +211,7 @@ export default function ServicesPage() {
             style={{
               fontFamily: 'var(--font-roboto)',
               fontWeight: 400,
-              fontSize: '32px',
+              fontSize: 'clamp(18px, 3.5vw, 32px)',
               color: '#ffffff',
               marginTop: '20px',
             }}
@@ -288,7 +288,7 @@ export default function ServicesPage() {
               style={{
                 fontFamily: 'var(--font-pp-mori)',
                 fontWeight: 600,
-                fontSize: '52px',
+                fontSize: 'clamp(32px, 5vw, 52px)',
                 lineHeight: '1.1',
                 color: '#fff',
                 textTransform: 'uppercase',
@@ -323,6 +323,7 @@ export default function ServicesPage() {
                       src={p.image}
                       alt={p.name}
                       fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
                     />
                   )}
@@ -346,11 +347,10 @@ export default function ServicesPage() {
                     style={{
                       fontFamily: 'var(--font-pp-mori)',
                       fontWeight: 600,
-                      fontSize: '26px',
+                      fontSize: 'clamp(18px, 2.4vw, 26px)',
                       color: '#111',
                       textTransform: 'uppercase',
                       lineHeight: '1.1',
-                      whiteSpace: 'nowrap',
                       paddingBottom: '20px',
                       paddingTop: '10px',
                     }}
@@ -387,7 +387,7 @@ export default function ServicesPage() {
                 style={{
                   fontFamily: 'var(--font-pp-mori)',
                   fontWeight: 400,
-                  fontSize: '40px',
+                  fontSize: 'clamp(28px, 5vw, 40px)',
                   lineHeight: '1',
                   color: '#111',
                 }}
@@ -491,9 +491,9 @@ export default function ServicesPage() {
         <div
           style={{
             position: 'absolute',
-            right: '-90px',
+            right: 'clamp(-90px, -6vw, -24px)',
             bottom: '30%',
-            width: '500px',
+            width: 'clamp(130px, 26vw, 500px)',
             opacity: 1,
             transform: 'rotate(12deg)',
             pointerEvents: 'none',

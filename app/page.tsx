@@ -16,7 +16,7 @@ export default function Home() {
       <ClientLogos />
       <SelectedWork />
       <div className="wrapper py-10 flex justify-center">
-        <Button variant="outline">SEE ALL</Button>
+        <Button variant="outline" href="/projects">SEE ALL</Button>
       </div>
       <WhatWeDesign />
       <CreativeNetwork />
@@ -25,9 +25,9 @@ export default function Home() {
         <div
           style={{
             position: 'absolute',
-            right: '-100px',
+            right: 'clamp(-90px, -6vw, -24px)',
             bottom: '28%',
-            width: 'clamp(300px, 35vw, 500px)',
+            width: 'clamp(130px, 26vw, 500px)',
             opacity: 1,
             transform: 'rotate(12deg)',
             pointerEvents: 'none',

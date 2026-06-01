@@ -44,7 +44,7 @@ export default function StudioPage() {
           style={{
             fontFamily: 'var(--font-pp-mori)',
             fontWeight: 600,
-            fontSize: '140px',
+            fontSize: 'clamp(64px, 18vw, 140px)',
             lineHeight: '1',
             letterSpacing: '-0.02em',
             color: '#111',
@@ -76,7 +76,7 @@ export default function StudioPage() {
             style={{
               fontFamily: 'var(--font-roboto)',
               fontWeight: 400,
-              fontSize: '24px',
+              fontSize: 'clamp(17px, 2.5vw, 24px)',
               lineHeight: '1.75',
               color: '#fff',
               marginTop: '28px',
@@ -90,17 +90,20 @@ export default function StudioPage() {
           </p>
 
           <div className="mt-12">
-            <button
+            <Link
+              href="/contact"
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 300,
-                fontSize: '24px',
+                fontSize: 'clamp(16px, 2.5vw, 24px)',
                 letterSpacing: '0.06em',
+                textDecoration: 'none',
+                display: 'inline-block',
               }}
               className="uppercase border border-white text-white rounded-full px-6 py-2 cursor-pointer hover:bg-white hover:text-black transition-colors"
             >
               START A PROJECT
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -116,6 +119,7 @@ export default function StudioPage() {
               src="/IMG_6576-1.jpg"
               alt="Giuliana Civelli"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -220,7 +224,7 @@ export default function StudioPage() {
           style={{
             fontFamily: 'var(--font-pp-mori)',
             fontWeight: 600,
-            fontSize: '100px',
+            fontSize: 'clamp(40px, 10vw, 100px)',
             lineHeight: '1.05',
             color: '#111',
             textTransform: 'uppercase',
@@ -234,7 +238,7 @@ export default function StudioPage() {
           style={{
             fontFamily: 'var(--font-roboto)',
             fontWeight: 400,
-            fontSize: '28px',
+            fontSize: 'clamp(18px, 3vw, 28px)',
             lineHeight: '1.75',
             color: '#111',
             marginTop: '28px',
@@ -256,9 +260,9 @@ export default function StudioPage() {
         <div
           style={{
             position: 'absolute',
-            right: '-100px',
+            right: 'clamp(-90px, -6vw, -24px)',
             bottom: '32%',
-            width: 'clamp(300px, 35vw, 560px)',
+            width: 'clamp(130px, 26vw, 560px)',
             opacity: 1,
             transform: 'rotate(12deg)',
             pointerEvents: 'none',
@@ -299,7 +303,7 @@ export default function StudioPage() {
                 style={{
                   fontFamily: 'var(--font-pp-mori)',
                   fontWeight: 600,
-                  fontSize: '32px',
+                  fontSize: 'clamp(24px, 3vw, 32px)',
                   color: '#111',
                   textTransform: 'uppercase',
                   lineHeight: '1.0',

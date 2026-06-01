@@ -13,9 +13,9 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#000', minHeight: '890px' }}>
+    <footer className="lg:min-h-[890px]" style={{ backgroundColor: '#000' }}>
       <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-14 lg:px-20 py-14 sm:py-20">
-        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-3 lg:items-end lg:gap-16" style={{ minHeight: 'calc(890px - 10rem)' }}>
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-3 lg:items-end lg:gap-16 lg:min-h-[calc(890px-10rem)]">
 
           {/* Left — Logo */}
           <div className="self-start">
@@ -30,10 +30,10 @@ export default function Footer() {
 
           {/* Middle — Contact info */}
           <div className="flex flex-col gap-5">
-            <p style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: '40px', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.03em', lineHeight: '78px' }}>
+            <p style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: 'clamp(28px, 4vw, 40px)', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.03em', lineHeight: 'clamp(44px, 8vw, 78px)' }}>
               GET IN TOUCH
             </p>
-            <div style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 400, fontSize: '28px', lineHeight: '78px', color: '#fff' }}>
+            <div style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 400, fontSize: 'clamp(18px, 3vw, 28px)', lineHeight: 'clamp(36px, 6vw, 78px)', color: '#fff' }}>
               <p style={{ fontWeight: 600 }}>Unfold Creative Studio</p>
               <p>+41 79 888 09 60</p>
               <a href="mailto:info@unfoldcreativestudio.ch" style={{ color: '#fff', textDecoration: 'none' }} className="hover:opacity-60 transition-opacity">info@unfoldcreativestudio.ch</a>
@@ -53,12 +53,12 @@ export default function Footer() {
           </div>
 
           {/* Right — Nav links */}
-          <div className="flex flex-col gap-[64px] lg:justify-self-end">
+          <div className="flex flex-col gap-8 sm:gap-12 lg:gap-[64px] lg:justify-self-end">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: '36px', color: '#fff', textDecoration: 'none', textTransform: 'uppercase', lineHeight: '1.1' }}
+                style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: '#fff', textDecoration: 'none', textTransform: 'uppercase', lineHeight: '1.1' }}
                 onMouseEnter={e => (e.currentTarget.style.opacity = '0.5')}
                 onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
               >

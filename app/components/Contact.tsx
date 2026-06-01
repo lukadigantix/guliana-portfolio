@@ -11,7 +11,7 @@ export default function Contact() {
             style={{
               fontFamily: 'var(--font-pp-mori)',
               fontWeight: 600,
-              fontSize: '40px',
+              fontSize: 'clamp(28px, 4.5vw, 40px)',
               lineHeight: '1.3',
               color: '#111',
               paddingBottom: '16px',
@@ -24,7 +24,7 @@ export default function Contact() {
             style={{
               fontFamily: 'var(--font-roboto)',
               fontWeight: 400,
-              fontSize: '28px',
+              fontSize: 'clamp(17px, 3vw, 28px)',
               lineHeight: '1.7',
               color: '#111',
             }}
@@ -43,7 +43,7 @@ export default function Contact() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 300,
-              fontSize: '24px',
+              fontSize: 'clamp(16px, 2.5vw, 24px)',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#111',
@@ -65,7 +65,7 @@ export default function Contact() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 300,
-              fontSize: '24px',
+              fontSize: 'clamp(16px, 2.5vw, 24px)',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#111',

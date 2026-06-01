@@ -21,7 +21,7 @@ export default function CreativeNetwork() {
                 style={{
                   fontFamily: 'var(--font-pp-mori)',
                   fontWeight: 600,
-                  fontSize: '46px',
+                  fontSize: 'clamp(32px, 5vw, 46px)',
                   lineHeight: '1.1',
                   color: '#fff',
                   textTransform: 'uppercase',
@@ -41,6 +41,7 @@ export default function CreativeNetwork() {
 
             <Button
               variant="ghost"
+              href="/studio"
               className="text-white! w-fit"
               style={{ fontFamily: 'var(--font-poppins)', fontWeight: 300, fontSize: '16px', letterSpacing: '0.05em' } as React.CSSProperties}
             >

@@ -1,35 +1,61 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-export async function POST(req: NextRequest) {
-  const { name, email, message } = await req.json()
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  if (!name || !email || !message) {
-    return NextResponse.json({ error: 'Alle Felder sind erforderlich.' }, { status: 400 })
+export async function POST(req: NextRequest) {
+  let body: { name?: string; email?: string; message?: string }
+  try {
+    body = await req.json()
+  } catch {
+    return NextResponse.json({ error: 'Ungültige Anfrage.' }, { status: 400 })
   }
 
+  const name = body?.name?.trim()
+  const email = body?.email?.trim()
+  const message = body?.message?.trim()
+
+  if (!name || !email || !message) {
+    return NextResponse.json({ error: 'Bitte fülle alle Pflichtfelder aus.' }, { status: 400 })
+  }
+  if (!EMAIL_RE.test(email)) {
+    return NextResponse.json({ error: 'Bitte gib eine gültige E-Mail-Adresse an.' }, { status: 400 })
+  }
+
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+    console.error('Contact form: SMTP environment variables are not configured.')
+    return NextResponse.json(
+      { error: 'Der Mailversand ist noch nicht konfiguriert. Bitte schreib uns direkt per E-Mail.' },
+      { status: 503 }
+    )
+  }
+
+  const port = Number(SMTP_PORT) || 587
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: false,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
+    host: SMTP_HOST,
+    port,
+    secure: port === 465,
+    auth: { user: SMTP_USER, pass: SMTP_PASS },
   })
 
-  await transporter.sendMail({
-    from: `"${name}" <${process.env.SMTP_USER}>`,
-    to: process.env.CONTACT_TO || 'info@unfoldcreativestudio.ch',
-    replyTo: email,
-    subject: `Neue Anfrage von ${name}`,
-    text: message,
-    html: `
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>E-Mail:</strong> ${email}</p>
-      <p><strong>Nachricht:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>
-    `,
-  })
+  try {
+    await transporter.sendMail({
+      from: `"Unfold Website" <${SMTP_USER}>`,
+      to: process.env.CONTACT_TO || 'info@unfoldcreativestudio.ch',
+      replyTo: email,
+      subject: `Neue Projektanfrage von ${name}`,
+      text: `${message}\n\n— gesendet via unfoldcreativestudio.ch`,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>E-Mail:</strong> ${email}</p>
+        <p><strong>Nachricht:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>
+      `,
+    })
+  } catch (err) {
+    console.error('Contact form: sendMail failed', err)
+    return NextResponse.json({ error: 'E-Mail konnte nicht gesendet werden. Bitte versuche es später erneut.' }, { status: 502 })
+  }
 
   return NextResponse.json({ success: true })
 }

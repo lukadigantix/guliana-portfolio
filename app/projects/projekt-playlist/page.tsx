@@ -1,12 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Contact from '../../components/Contact'
+import Reveal from '../../components/Reveal'
+import Parallax from '../../components/Parallax'
 
 export default function ProjektPlaylistPage() {
   return (
     <main>
       {/* ── Header ── */}
-      <div className="wrapper py-32">
+      <div className="wrapper py-16 sm:py-32">
         <h1
           style={{
             fontFamily: 'var(--font-pp-mori)',
@@ -23,7 +25,7 @@ export default function ProjektPlaylistPage() {
           style={{
             fontFamily: 'var(--font-pp-mori)',
             fontWeight: 600,
-            fontSize: '32px',
+            fontSize: 'clamp(20px, 3vw, 32px)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             color: '#111',
@@ -53,27 +55,31 @@ export default function ProjektPlaylistPage() {
         </Link>
       </div>
 
-      {/* ── Hero image ── */}
+      {/* ── Hero image (subtle parallax) ── */}
       <div className="wrapper">
-        <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-          <Image
-            src="/sw-1.png"
-            alt="Projekt Playlist"
-            fill
-            className="object-cover"
-          />
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
+          <Parallax speed={0.06} className="absolute inset-0">
+            <Image
+              src="/projekplaylistcover.jpg"
+              alt="Projekt Playlist – B:B Cover"
+              fill
+              sizes="100vw"
+              className="object-cover scale-110"
+              priority
+            />
+          </Parallax>
         </div>
       </div>
 
       {/* ── Info row ── */}
       <div className="wrapper py-12">
-        <div className="flex justify-end gap-16 lg:gap-24">
+        <div className="flex justify-end gap-10 sm:gap-16 lg:gap-24">
           <div className="flex flex-col gap-2">
             <p
               style={{
                 fontFamily: 'var(--font-pp-mori)',
                 fontWeight: 600,
-                fontSize: '32px',
+                fontSize: 'clamp(20px, 3vw, 32px)',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 color: '#111',
@@ -97,7 +103,7 @@ export default function ProjektPlaylistPage() {
               style={{
                 fontFamily: 'var(--font-pp-mori)',
                 fontWeight: 600,
-                fontSize: '32px',
+                fontSize: 'clamp(20px, 3vw, 32px)',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 color: '#111',
@@ -121,7 +127,7 @@ export default function ProjektPlaylistPage() {
               style={{
                 fontFamily: 'var(--font-pp-mori)',
                 fontWeight: 600,
-                fontSize: '32px',
+                fontSize: 'clamp(20px, 3vw, 32px)',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 color: '#111',
@@ -150,7 +156,7 @@ export default function ProjektPlaylistPage() {
             style={{
               fontFamily: 'var(--font-pp-mori)',
               fontWeight: 600,
-              fontSize: '40px',
+              fontSize: 'clamp(28px, 4vw, 40px)',
               textTransform: 'uppercase',
               color: '#111',
               lineHeight: '1.1',
@@ -233,30 +239,36 @@ export default function ProjektPlaylistPage() {
       {/* ── Contact + logo overlay ── */}
       <div className="relative" style={{ overflowX: 'hidden' }}>
         <div className="wrapper flex flex-col gap-4 pb-50">
-        <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-          <Image
-            src="/sw-1.png"
-            alt="Projekt Playlist gallery 1"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-          <Image
-            src="/sw-1.png"
-            alt="Projekt Playlist gallery 2"
-            fill
-            className="object-cover"
-          />
-        </div>
+        <Reveal>
+          <div className="relative w-full" style={{ aspectRatio: '3/2' }}>
+            <Image
+              src="/playlist-2.jpg"
+              alt="Projekt Playlist – Wizardry Editorial Spread"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+        <Reveal delay={80}>
+          <div className="relative w-full" style={{ aspectRatio: '3/2' }}>
+            <Image
+              src="/playlist-3.jpg"
+              alt="Projekt Playlist – B:B Vinyl"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
       </div>
         <Contact />
         <div
           style={{
             position: 'absolute',
-            right: '-70px',
+            right: 'clamp(-90px, -6vw, -24px)',
             top: '69%',
-            width: 'clamp(300px, 35vw, 500px)',
+            width: 'clamp(130px, 26vw, 500px)',
             opacity: 1,
             transform: 'rotate(12deg)',
             pointerEvents: 'none',

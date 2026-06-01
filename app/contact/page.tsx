@@ -26,6 +26,8 @@ const labelStyle: React.CSSProperties = {
   marginBottom: '2px',
 }
 
+type Status = 'idle' | 'sending' | 'success' | 'error'
+
 export default function ContactPage() {
   const [form, setForm] = useState({
     vorname: '',
@@ -36,16 +38,43 @@ export default function ContactPage() {
     erzaehl: '',
     budget: '',
   })
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const set = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [key]: e.target.value }))
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const body = encodeURIComponent(
-      `Vorname: ${form.vorname}\nNachname: ${form.nachname}\nTel: ${form.tel}\nE-Mail: ${form.email}\nUnternehmen: ${form.unternehmen}\nBudget: ${form.budget}\n\n${form.erzaehl}`
-    )
-    window.location.href = `mailto:info@unfoldcreativestudio.ch?subject=Projektanfrage&body=${body}`
+    setStatus('sending')
+    setErrorMsg('')
+
+    const name = `${form.vorname} ${form.nachname}`.trim()
+    const message = [
+      `Tel: ${form.tel}`,
+      form.unternehmen ? `Unternehmen / Marke: ${form.unternehmen}` : null,
+      form.budget ? `Budget-Rahmen: ${form.budget}` : null,
+      '',
+      form.erzaehl,
+    ]
+      .filter((l) => l !== null && l !== undefined)
+      .join('\n')
+      .trim()
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email: form.email, message }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data?.error || 'Senden fehlgeschlagen. Bitte versuche es erneut.')
+      setStatus('success')
+      setForm({ vorname: '', nachname: '', tel: '', email: '', unternehmen: '', erzaehl: '', budget: '' })
+    } catch (err) {
+      setStatus('error')
+      setErrorMsg(err instanceof Error ? err.message : 'Senden fehlgeschlagen. Bitte versuche es erneut.')
+    }
   }
 
   return (
@@ -60,7 +89,7 @@ export default function ContactPage() {
               style={{
                 fontFamily: 'var(--font-pp-mori)',
                 fontWeight: 600,
-                fontSize: '40px',
+                fontSize: 'clamp(28px, 4.5vw, 40px)',
                 lineHeight: '1.3',
                 color: '#111',
               }}
@@ -72,7 +101,7 @@ export default function ContactPage() {
               style={{
                 fontFamily: 'var(--font-roboto)',
                 fontWeight: 400,
-                fontSize: '28px',
+                fontSize: 'clamp(17px, 3vw, 28px)',
                 lineHeight: '1.7',
                 color: '#111',
               }}
@@ -91,7 +120,7 @@ export default function ContactPage() {
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 300,
-                fontSize: '24px',
+                fontSize: 'clamp(16px, 2.5vw, 24px)',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 color: '#111',
@@ -113,7 +142,7 @@ export default function ContactPage() {
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 300,
-                fontSize: '24px',
+                fontSize: 'clamp(16px, 2.5vw, 24px)',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 color: '#111',
@@ -227,19 +256,40 @@ export default function ContactPage() {
             </div>
 
             {/* Submit */}
-            <div className="mt-12">
+            <div className="mt-12 flex flex-col gap-4">
               <button
                 type="submit"
+                disabled={status === 'sending'}
                 style={{
                   fontFamily: 'var(--font-poppins)',
                   fontWeight: 300,
-                  fontSize: '24px',
+                  fontSize: 'clamp(16px, 2.5vw, 24px)',
                   letterSpacing: '0.06em',
                 }}
-                className="uppercase border border-black rounded-full px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors"
+                className="uppercase border border-black rounded-full px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-fit"
               >
-                START YOUR PROJECT
+                {status === 'sending' ? 'SENDING…' : 'START YOUR PROJECT'}
               </button>
+
+              {status === 'success' && (
+                <p
+                  role="status"
+                  style={{ fontFamily: 'var(--font-roboto)', fontSize: 'clamp(15px, 2.5vw, 18px)', color: '#2e7d32' }}
+                >
+                  Danke! Deine Anfrage wurde gesendet – ich melde mich so bald wie möglich.
+                </p>
+              )}
+              {status === 'error' && (
+                <p
+                  role="alert"
+                  style={{ fontFamily: 'var(--font-roboto)', fontSize: 'clamp(15px, 2.5vw, 18px)', color: '#c62828' }}
+                >
+                  {errorMsg}{' '}
+                  <a href="mailto:info@unfoldcreativestudio.ch" className="underline">
+                    info@unfoldcreativestudio.ch
+                  </a>
+                </p>
+              )}
             </div>
           </form>
         </div>

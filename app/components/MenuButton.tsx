@@ -72,7 +72,7 @@ export default function MenuButton() {
       <button
         aria-label={open ? 'Close menu' : 'Open menu'}
         onClick={() => toggle()}
-        className="cursor-pointer relative z-50 w-22.5 h-22.5 flex items-center justify-center"
+        className="cursor-pointer relative z-50 w-12 h-12 sm:w-16 sm:h-16 md:w-22.5 md:h-22.5 flex items-center justify-center"
         style={{ color: open ? 'white' : 'black' }}
       >
         <span
@@ -83,7 +83,7 @@ export default function MenuButton() {
             transform: open ? 'scale(0.6)' : 'scale(1)',
           }}
         >
-          <Plus size={90} strokeWidth={1.5} strokeLinecap="square" strokeLinejoin="miter" />
+          <Plus className="w-10 h-10 sm:w-14 sm:h-14 md:w-[90px] md:h-[90px]" strokeWidth={1.5} strokeLinecap="square" strokeLinejoin="miter" />
         </span>
         <span
           style={{
@@ -93,7 +93,7 @@ export default function MenuButton() {
             transform: open ? 'scale(1)' : 'scale(0.6)',
           }}
         >
-          <Minus size={90} strokeWidth={1.5} strokeLinecap="square" strokeLinejoin="miter" />
+          <Minus className="w-10 h-10 sm:w-14 sm:h-14 md:w-[90px] md:h-[90px]" strokeWidth={1.5} strokeLinecap="square" strokeLinejoin="miter" />
         </span>
       </button>
     </>

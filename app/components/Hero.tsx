@@ -29,8 +29,8 @@ export default function Hero() {
       </p>
 
       <div className="flex items-center gap-8 mt-10">
-        <Button variant="outline">Start a project</Button>
-        <Button variant="ghost">Selected work ↓</Button>
+        <Button variant="outline" href="/contact">Start a project</Button>
+        <Button variant="ghost" href="/projects">Selected work ↓</Button>
       </div>
     </div>
   )
