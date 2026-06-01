@@ -10,6 +10,17 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ── Lenis smooth/momentum scrolling (used by <SmoothScroll/>) ── */
 html.lenis,
 html.lenis body {

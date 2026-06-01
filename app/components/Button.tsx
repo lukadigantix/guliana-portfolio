@@ -14,13 +14,13 @@ export default function Button({ variant = 'outline', children, className = '', 
   const base: CSSProperties = {
     fontFamily: 'var(--font-poppins)',
     fontWeight: 300,
-    fontSize: '20px',
+    fontSize: 'clamp(13px, 3.5vw, 20px)',
     ...style,
   }
 
   const cls =
     variant === 'outline'
-      ? `inline-block uppercase border border-black rounded-full px-6 py-2 cursor-pointer text-black hover:bg-black hover:text-white transition-colors no-underline ${className}`
+      ? `inline-block uppercase border border-black rounded-full px-3 py-1.5 sm:px-6 sm:py-2 cursor-pointer text-black hover:bg-black hover:text-white transition-colors no-underline ${className}`
       : `inline-block uppercase cursor-pointer text-black hover:opacity-50 transition-opacity no-underline ${className}`
 
   if (href) {

@@ -28,7 +28,7 @@ export default function Hero() {
         entwickelt durch Unfold Creative Studio und einem kurierten Netzwerk.
       </p>
 
-      <div className="flex items-center gap-8 mt-10">
+      <div className="w-full flex flex-row items-center justify-center gap-4 sm:gap-8 mt-10">
         <Button variant="outline" href="/contact">Start a project</Button>
         <Button variant="ghost" href="/projects">Selected work ↓</Button>
       </div>

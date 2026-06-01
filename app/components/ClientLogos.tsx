@@ -9,12 +9,14 @@ const clients = [
 ]
 
 export default function ClientLogos() {
+  const repeated = [...clients, ...clients, ...clients, ...clients]
+
   return (
-    <div className="wrapper mb-10 sm:mb-20">
-      <div className="grid grid-cols-3 sm:grid-cols-5  gap-6 sm:gap-4 mt-10 sm:mt-20 py-6 sm:py-8">
-        {clients.map((client) => (
+    <div className="overflow-hidden mt-10 sm:mt-20 mb-10 sm:mb-20 py-6 sm:py-8">
+      <div className="animate-marquee flex items-center gap-16 w-max">
+        {repeated.map((client, i) => (
           <Image
-            key={client.alt}
+            key={i}
             src={client.src}
             alt={client.alt}
             width={client.width}
