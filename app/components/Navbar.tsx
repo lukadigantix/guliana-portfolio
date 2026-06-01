@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between py-6">
         <Link href="/" aria-label="Unfold Creative Studio — početna" className="cursor-pointer">
           <Image
-            src="/unfold-logo-final.svg"
+            src="/unfold-logo-un.svg"
             alt="Unfold Creative Studio"
             width={100}
             height={100}

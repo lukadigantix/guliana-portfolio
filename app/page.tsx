@@ -6,7 +6,6 @@ import Button from "./components/Button";
 import CreativeNetwork from "./components/CreativeNetwork";
 import HowWeWork from "./components/HowWeWork";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import Image from "next/image";
 
 export default function Home() {
@@ -36,7 +35,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/black-logo.png"
+            src="/unfold-logo-black.svg"
             alt=""
             width={340}
             height={340}

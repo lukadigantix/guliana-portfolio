@@ -503,7 +503,7 @@ export default function ServicesPage() {
           }}
         >
           <Image
-            src="/black-logo.png"
+            src="/unfold-logo-black.svg"
             alt=""
             width={340}
             height={340}

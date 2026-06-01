@@ -151,7 +151,7 @@ export default function ProjectsPage() {
           }}
         >
           <Image
-            src="/black-logo.png"
+            src="/unfold-logo-black.svg"
             alt=""
             width={340}
             height={340}
