@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Button from '../components/Button'
 import Contact from '../components/Contact'
 import SectionHeading from '../components/SectionHeading'
+import Parallax from '../components/Parallax'
 
 const partners = [
   {
@@ -114,14 +114,16 @@ export default function StudioPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-center">
           {/* Photo */}
-          <div className="relative w-full aspect-[3/4] bg-[#e8e4de]">
-            <Image
-              src="/IMG_6576-1.jpg"
-              alt="Giuliana Civelli"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="relative w-full aspect-[3/4] bg-[#e8e4de] overflow-hidden">
+            <Parallax speed={0.08} className="absolute inset-0">
+              <Image
+                src="/IMG_6576-1.jpg"
+                alt="Giuliana Civelli"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover scale-110"
+              />
+            </Parallax>
           </div>
 
           {/* Bio */}
@@ -253,30 +255,8 @@ export default function StudioPage() {
       </div>
       </div>
 
-      {/* ── Creative Network Grid + Contact (relative wrapper for logo overlay) ── */}
+      {/* ── Creative Network Grid + Contact ── */}
       <div className="relative overflow-hidden">
-
-        {/* Decorative logo between sections */}
-        <div
-          style={{
-            position: 'absolute',
-            right: 'clamp(-90px, -6vw, -24px)',
-            bottom: '32%',
-            width: 'clamp(130px, 26vw, 560px)',
-            opacity: 1,
-            transform: 'rotate(12deg)',
-            pointerEvents: 'none',
-            zIndex: 10,
-          }}
-        >
-          <Image
-            src="/black-logo.png"
-            alt=""
-            width={560}
-            height={560}
-            style={{ width: '100%', height: 'auto' }}
-          />
-        </div>
 
       {/* ── Creative Network Grid ── */}
       <div className="wrapper pb-20 sm:py-36">
@@ -348,7 +328,30 @@ export default function StudioPage() {
         </div>
       </div>
 
-      <Contact />
+      {/* ── Contact + logo (beside contact on desktop) ── */}
+      <div className="relative overflow-hidden">
+        <Contact />
+        <div
+          className="hidden md:block"
+          style={{
+            position: 'absolute',
+            right: 'clamp(24px, 6vw, 110px)',
+            top: '50%',
+            width: 'clamp(180px, 22vw, 340px)',
+            transform: 'translateY(-50%) rotate(12deg)',
+            pointerEvents: 'none',
+            zIndex: 10,
+          }}
+        >
+          <Image
+            src="/black-logo.png"
+            alt=""
+            width={340}
+            height={340}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+      </div>
       </div>
     </main>
   )

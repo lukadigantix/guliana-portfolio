@@ -4,6 +4,7 @@ import { Roboto, Poppins } from 'next/font/google'
 import './globals.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import SmoothScroll from './components/SmoothScroll'
 
 const ppMori = localFont({
   src: [
@@ -39,8 +40,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${ppMori.variable} ${roboto.variable} ${poppins.variable}`}>
-      <body><Navbar />{children}<Footer /></body>
+    <html lang="en" className={`${ppMori.variable} ${roboto.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning><SmoothScroll /><Navbar />{children}<Footer /></body>
     </html>
   )
 }

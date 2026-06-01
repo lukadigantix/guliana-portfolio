@@ -10,6 +10,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Lenis smooth/momentum scrolling (used by <SmoothScroll/>) ── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 /* ── Scroll-reveal (used by <Reveal/>) ── */
 [data-reveal] {
   opacity: 0;

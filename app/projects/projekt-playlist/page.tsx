@@ -234,11 +234,7 @@ export default function ProjektPlaylistPage() {
       </div>
 
       {/* ── Gallery ── */}
-      
-
-      {/* ── Contact + logo overlay ── */}
-      <div className="relative" style={{ overflowX: 'hidden' }}>
-        <div className="wrapper flex flex-col gap-4 pb-50">
+      <div className="wrapper flex flex-col gap-4 pb-50">
         <Reveal>
           <div className="relative w-full" style={{ aspectRatio: '3/2' }}>
             <Image
@@ -262,15 +258,17 @@ export default function ProjektPlaylistPage() {
           </div>
         </Reveal>
       </div>
+      {/* ── Contact + logo (beside contact on desktop) ── */}
+      <div className="relative overflow-hidden">
         <Contact />
         <div
+          className="hidden md:block"
           style={{
             position: 'absolute',
-            right: 'clamp(-90px, -6vw, -24px)',
-            top: '69%',
-            width: 'clamp(130px, 26vw, 500px)',
-            opacity: 1,
-            transform: 'rotate(12deg)',
+            right: 'clamp(24px, 6vw, 110px)',
+            top: '50%',
+            width: 'clamp(180px, 22vw, 340px)',
+            transform: 'translateY(-50%) rotate(12deg)',
             pointerEvents: 'none',
             zIndex: 10,
           }}
@@ -278,8 +276,8 @@ export default function ProjektPlaylistPage() {
           <Image
             src="/black-logo.png"
             alt=""
-            width={500}
-            height={500}
+            width={340}
+            height={340}
             style={{ width: '100%', height: 'auto' }}
           />
         </div>

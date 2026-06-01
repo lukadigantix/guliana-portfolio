@@ -484,18 +484,20 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* ── How We Work + Contact (relative wrapper for logo overlay) ── */}
-      <div className="relative overflow-hidden">
+      {/* ── How We Work ── */}
+      <HowWeWork />
 
-        {/* Decorative logo */}
+      {/* ── Contact + logo (beside contact on desktop) ── */}
+      <div className="relative overflow-hidden">
+        <Contact />
         <div
+          className="hidden md:block"
           style={{
             position: 'absolute',
-            right: 'clamp(-90px, -6vw, -24px)',
-            bottom: '30%',
-            width: 'clamp(130px, 26vw, 500px)',
-            opacity: 1,
-            transform: 'rotate(12deg)',
+            right: 'clamp(24px, 6vw, 110px)',
+            top: '50%',
+            width: 'clamp(180px, 22vw, 340px)',
+            transform: 'translateY(-50%) rotate(12deg)',
             pointerEvents: 'none',
             zIndex: 10,
           }}
@@ -503,16 +505,11 @@ export default function ServicesPage() {
           <Image
             src="/black-logo.png"
             alt=""
-            width={560}
-            height={560}
+            width={340}
+            height={340}
             style={{ width: '100%', height: 'auto' }}
           />
         </div>
-
-        {/* ── How We Work ── */}
-        <HowWeWork />
-
-        <Contact />
       </div>
     </main>
   )

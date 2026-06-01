@@ -327,17 +327,17 @@ export default function ProjectDetail({
         </div>
       )}
 
-      {/* ── Contact + logo overlay ── */}
-      <div className="relative" style={{ overflowX: 'hidden' }}>
+      {/* ── Contact + logo (sits neatly beside the contact text on desktop) ── */}
+      <div className="relative overflow-hidden">
         <Contact />
         <div
+          className="hidden md:block"
           style={{
             position: 'absolute',
-            right: 'clamp(-90px, -6vw, -24px)',
-            top: '69%',
-            width: 'clamp(130px, 26vw, 500px)',
-            opacity: 1,
-            transform: 'rotate(12deg)',
+            right: 'clamp(24px, 6vw, 110px)',
+            top: '50%',
+            width: 'clamp(180px, 22vw, 340px)',
+            transform: 'translateY(-50%) rotate(12deg)',
             pointerEvents: 'none',
             zIndex: 10,
           }}
@@ -345,8 +345,8 @@ export default function ProjectDetail({
           <Image
             src="/black-logo.png"
             alt=""
-            width={500}
-            height={500}
+            width={340}
+            height={340}
             style={{ width: '100%', height: 'auto' }}
           />
         </div>

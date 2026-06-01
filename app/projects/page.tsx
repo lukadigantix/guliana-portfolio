@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Contact from '../components/Contact'
 import Reveal from '../components/Reveal'
+import Parallax from '../components/Parallax'
 
 const categories = [
   'PRINT',
@@ -108,17 +109,19 @@ export default function ProjectsPage() {
           )
           const imagePanel = (
             <div className="relative w-full aspect-[4/3] md:aspect-auto md:flex-1 overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
+              <Parallax speed={0.05} className="absolute inset-0">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover scale-[1.12] transition-transform duration-700 ease-out group-hover:scale-[1.16]"
+                />
+              </Parallax>
             </div>
           )
           return (
-            <Reveal key={project.title} delay={(i % 2) * 80}>
+            <Reveal key={`${project.title}-${i}`} delay={(i % 2) * 80}>
               <Link
                 href={(project as { slug?: string }).slug ? `/projects/${(project as { slug?: string }).slug}` : '#'}
                 style={{ display: 'block', textDecoration: 'none' }}
@@ -132,16 +135,17 @@ export default function ProjectsPage() {
         })}
       </div>
 
-      {/* Contact + logo overlay */}
-      <div className="relative overflow-hidden">
+      {/* Contact + logo (beside contact on desktop) */}
+      <div className="mt-30 relative overflow-hidden">
+        <Contact />
         <div
+          className="hidden md:block"
           style={{
             position: 'absolute',
-            right: 'clamp(-90px, -6vw, -24px)',
-            top: '5%',
-            width: 'clamp(130px, 26vw, 500px)',
-            opacity: 1,
-            transform: 'rotate(12deg)',
+            right: 'clamp(24px, 6vw, 110px)',
+            top: '50%',
+            width: 'clamp(180px, 22vw, 340px)',
+            transform: 'translateY(-50%) rotate(12deg)',
             pointerEvents: 'none',
             zIndex: 10,
           }}
@@ -149,14 +153,10 @@ export default function ProjectsPage() {
           <Image
             src="/black-logo.png"
             alt=""
-            width={500}
-            height={500}
+            width={340}
+            height={340}
             style={{ width: '100%', height: 'auto' }}
           />
-        </div>
-
-        <div className='mt-30'>
-          <Contact />
         </div>
       </div>
     </>
