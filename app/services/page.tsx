@@ -12,7 +12,7 @@ const services = [
       'Logo Design',
       'Corporate Design',
       'Brand Strategy',
-      'Farb- & Typkonzept',
+      'Farb- & Typokonzept',
       'Brand Guidelines',
       'Packaging Design',
       'Print Design',
@@ -115,7 +115,7 @@ const packages = [
     includes: [
       'Brand Strategy Workshop',
       'Logo-Entwicklung',
-      'Farb- & Typkonzept',
+      'Farb- & Typokonzept',
       'Visual Identity System',
       'Brand Guidelines',
       'Basis Anwendungen (z.B. Visitenkarte, Print)',
@@ -227,10 +227,10 @@ export default function ServicesPage() {
           {services.map((svc) => (
             <div
               key={svc.title}
-              className="flex flex-col gap-6"
-              style={{ backgroundColor: '#F6F6F6', paddingTop: '64px', paddingBottom: '72px', paddingLeft: '20px', paddingRight: '10px' }}
+              className="flex flex-col gap-4 lg:gap-6 pt-10 pb-10 lg:pt-16 lg:pb-[72px] pl-5 pr-[10px]"
+              style={{ backgroundColor: '#F6F6F6' }}
             >
-              <div style={{ minHeight: '90px' }}>
+              <div className="lg:min-h-[90px]">
                 <p
                   style={{
                     fontFamily: 'var(--font-pp-mori)',
@@ -313,9 +313,9 @@ export default function ServicesPage() {
           </div>
 
           {/* Right: partner cards */}
-          <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-3 p-2 pr-6">
+          <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-3 p-2 lg:pr-6 items-stretch">
             {network.map((p) => (
-              <div key={p.name} className="flex flex-col">
+              <div key={p.name} className="flex flex-col h-full">
                 {/* Image */}
                 <div className="relative w-full bg-[#222]" style={{ aspectRatio: '4/3' }}>
                   {p.image && (
@@ -330,13 +330,13 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Info */}
-                <div className="bg-white flex flex-col gap-1 p-4">
+                <div className="bg-white flex flex-col gap-1 p-4 flex-1">
                   <p
                     style={{
                       fontFamily: 'var(--font-poppins)',
                       fontWeight: 300,
-                      fontSize: '16px',
-                      letterSpacing: '0.14em',
+                      fontSize: 'clamp(13px, 3vw, 16px)',
+                      letterSpacing: '0.12em',
                       textTransform: 'uppercase',
                       color: '#555',
                     }}
@@ -347,12 +347,13 @@ export default function ServicesPage() {
                     style={{
                       fontFamily: 'var(--font-pp-mori)',
                       fontWeight: 600,
-                      fontSize: 'clamp(18px, 2.4vw, 26px)',
+                      fontSize: 'clamp(16px, 4.5vw, 26px)',
                       color: '#111',
                       textTransform: 'uppercase',
                       lineHeight: '1.1',
                       paddingBottom: '20px',
                       paddingTop: '10px',
+                      overflowWrap: 'anywhere',
                     }}
                   >
                     {p.name}
@@ -469,19 +470,6 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Decorative large logo */}
-        <div
-          className="hidden lg:block absolute bottom-0 right-0 select-none pointer-events-none"
-          style={{ opacity: 0.06 }}
-        >
-          <Image
-            src="/unfold-logo-final.svg"
-            alt=""
-            width={500}
-            height={300}
-            className="w-auto h-auto"
-          />
-        </div>
       </div>
 
       {/* ── How We Work ── */}

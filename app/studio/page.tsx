@@ -249,8 +249,7 @@ export default function StudioPage() {
         >
           Unfold arbeitet im Kern als Soloprojekt – aber selten allein. Für jede Disziplin, die
           über reines Grafikdesign hinausgeht, kollaboriere ich mit einem festen Netzwerk
-          unabhängiger Kreativer. Engaged on a per-project basis, integrated into the creative
-          direction.
+          unabhängiger Kreativer.
         </p>
       </div>
       </div>

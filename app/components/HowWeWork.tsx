@@ -36,11 +36,9 @@ export default function HowWeWork() {
         {steps.map((step, i) => (
           <div
             key={step.number}
-            className="flex flex-col gap-6 pr-6 lg:pr-10 pb-10 lg:pb-40"
-            style={{
-              borderLeft: i !== 0 ? '1px solid #000' : 'none',
-              paddingLeft: i !== 0 ? '2rem' : '0',
-            }}
+            className={`flex flex-col gap-6 pr-6 lg:pr-10 pb-10 lg:pb-40${
+              i !== 0 ? ' lg:border-l lg:border-black lg:pl-8' : ''
+            }`}
           >
             <p
               style={{
