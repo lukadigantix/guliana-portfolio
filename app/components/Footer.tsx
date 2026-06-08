@@ -20,11 +20,11 @@ export default function Footer() {
           {/* Left — Logo */}
           <div>
             <Image
-              src="/unfold-logo-white.svg"
+              src="/unfold-logo-footer.svg"
               alt="Unfold Creative Studio"
-              width={300}
+              width={420}
               height={300}
-              className="w-52.5 sm:w-75 h-auto"
+              className="w-48 sm:w-80 h-auto"
             />
           </div>
 
