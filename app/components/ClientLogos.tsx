@@ -6,8 +6,8 @@ const clients = [
   { src: '/artluxe.png', alt: "Art d'Luxe", width: 120, className: 'h-16 sm:h-24 w-auto object-contain' },
   { src: '/sk-cnc.png', alt: 'SK-CNC Solutions', width: 160, className: 'h-8 sm:h-12 w-auto object-contain' },
   { src: '/blwrk.png', alt: 'BLWRK', width: 140, className: 'h-8 sm:h-12 w-auto object-contain' },
-  { src: '/logo-client-text.svg', alt: 'Client', width: 160, className: 'h-8 sm:h-12 w-auto object-contain' },
-  { src: '/thepour-logo.svg', alt: 'The Pour Class', width: 120, className: 'h-14 sm:h-20 w-auto object-contain' },
+  { src: '/logo-client-text.svg', alt: 'Kramer', width: 200, className: 'h-12 sm:h-16 w-auto object-contain' },
+  { src: '/thepour-logo.svg', alt: 'The Pour Class', width: 120, className: 'h-20 sm:h-28 w-auto object-contain' },
 ]
 
 export default function ClientLogos() {
