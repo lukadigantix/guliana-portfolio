@@ -15,21 +15,21 @@ export default function Footer() {
   return (
     <footer className="lg:min-h-[890px]" style={{ backgroundColor: '#000' }}>
       <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-14 lg:px-20 py-14 sm:py-20">
-        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-3 lg:items-end lg:gap-16 lg:min-h-[calc(890px-10rem)]">
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-3 lg:items-start lg:gap-16 lg:min-h-[calc(890px-10rem)]">
 
           {/* Left — Logo */}
-          <div className="self-start">
+          <div>
             <Image
               src="/unfold-logo-white.svg"
               alt="Unfold Creative Studio"
               width={300}
               height={300}
-              className="w-auto h-auto"
+              className="w-52.5 sm:w-75 h-auto"
             />
           </div>
 
           {/* Middle — Contact info */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 lg:self-end">
             <p style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: 'clamp(28px, 4vw, 40px)', color: '#fff', textTransform: 'uppercase', letterSpacing: '0.03em', lineHeight: 'clamp(44px, 8vw, 78px)' }}>
               GET IN TOUCH
             </p>
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           {/* Right — Nav links */}
-          <div className="flex flex-col gap-8 sm:gap-12 lg:gap-[64px] lg:justify-self-end">
+          <div className="flex flex-col gap-8 sm:gap-12 lg:gap-[64px] lg:justify-self-end lg:self-end">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
