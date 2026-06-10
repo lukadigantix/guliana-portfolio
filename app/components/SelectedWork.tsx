@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import SectionHeading from './SectionHeading'
-import Button from './Button'
 
 const works = [
   { src: '/sw-1.png', alt: 'Kramer Webredesign', width: 800, height: 600, href: '/projects/kramer' },
@@ -19,9 +18,17 @@ export default function SelectedWork() {
         <SectionHeading color="#fff">Selected work</SectionHeading>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10 sm:mt-20">
-          {works.slice(0, 2).map((w) => (
+          {works.slice(0, 2).map((w, i) => (
             <Link key={w.src} href={w.href} className="overflow-hidden group relative block">
-              <Image src={w.src} alt={w.alt} width={w.width} height={w.height} className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image
+                src={w.src}
+                alt={w.alt}
+                width={w.width}
+                height={w.height}
+                sizes="(max-width: 640px) 100vw, 50vw"
+                priority={i === 0}
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
             </Link>
           ))}
@@ -30,7 +37,14 @@ export default function SelectedWork() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
           {works.slice(2).map((w) => (
             <Link key={w.src} href={w.href} className="overflow-hidden group relative block">
-              <Image src={w.src} alt={w.alt} width={w.width} height={w.height} className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image
+                src={w.src}
+                alt={w.alt}
+                width={w.width}
+                height={w.height}
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
             </Link>
           ))}

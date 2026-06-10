@@ -39,7 +39,7 @@ export default function WhatWeDesign() {
           }}
         >
           {items.map((item) => (
-            <Image key={`icon-${item.title}`} src={item.icon} alt={item.title} width={200} height={200} className="w-14 h-14 object-contain" />
+            <Image key={`icon-${item.title}`} src={item.icon} alt={item.title} width={56} height={56} sizes="56px" className="w-14 h-14 object-contain" />
           ))}
           {items.map((item) => (
             <h3 key={`title-${item.title}`} style={{ fontFamily: 'var(--font-pp-mori)', fontWeight: 600, fontSize: '38px', lineHeight: '1.2' }}>

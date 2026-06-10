@@ -31,7 +31,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Unfold Creative Studio',
-  description: 'Unfold Creative Studio',
+  description: 'Strategisches Design, starke Marken und digitale Auftritte – entwickelt durch Unfold Creative Studio und einem kuratierten Netzwerk.',
 }
 
 export default function RootLayout({
@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${ppMori.variable} ${roboto.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html lang="de" className={`${ppMori.variable} ${roboto.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning><SmoothScroll /><Navbar />{children}<Footer /></body>
     </html>
   )

@@ -23,6 +23,7 @@ export default function ClientLogos() {
             alt={client.alt}
             width={client.width}
             height={60}
+            sizes="(max-width: 640px) 80px, 160px"
             className={client.className}
           />
         ))}

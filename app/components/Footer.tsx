@@ -40,11 +40,11 @@ export default function Footer() {
               <p>@unfoldcreativestudio</p>
             </div>
             <div className="flex items-center gap-6 mt-1">
-              <a href="https://www.instagram.com/unfoldcreativestudio" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
-                <svg width="28" height="28" viewBox="0 0 26 26" fill="none"><rect x="1" y="1" width="24" height="24" rx="6" stroke="white" strokeWidth="1.5"/><circle cx="13" cy="13" r="5" stroke="white" strokeWidth="1.5"/><circle cx="19.5" cy="6.5" r="1.2" fill="white"/></svg>
+              <a href="https://www.instagram.com/unfoldcreativestudio" target="_blank" rel="noopener noreferrer" aria-label="Unfold Creative Studio on Instagram" className="hover:opacity-50 transition-opacity">
+                <svg width="28" height="28" viewBox="0 0 26 26" fill="none" aria-hidden="true"><rect x="1" y="1" width="24" height="24" rx="6" stroke="white" strokeWidth="1.5"/><circle cx="13" cy="13" r="5" stroke="white" strokeWidth="1.5"/><circle cx="19.5" cy="6.5" r="1.2" fill="white"/></svg>
               </a>
-              <a href="mailto:info@unfoldcreativestudio.ch" className="hover:opacity-50 transition-opacity">
-                <svg width="30" height="24" viewBox="0 0 28 22" fill="none"><rect x="1" y="1" width="26" height="20" rx="2" stroke="white" strokeWidth="1.5"/><path d="M1 3L14 12.5L27 3" stroke="white" strokeWidth="1.5"/></svg>
+              <a href="mailto:info@unfoldcreativestudio.ch" aria-label="Send email to Unfold Creative Studio" className="hover:opacity-50 transition-opacity">
+                <svg width="30" height="24" viewBox="0 0 28 22" fill="none" aria-hidden="true"><rect x="1" y="1" width="26" height="20" rx="2" stroke="white" strokeWidth="1.5"/><path d="M1 3L14 12.5L27 3" stroke="white" strokeWidth="1.5"/></svg>
               </a>
             </div>
           </div>
