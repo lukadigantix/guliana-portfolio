@@ -18,7 +18,7 @@ export default function SelectedWork() {
         <SectionHeading color="#fff">Selected work</SectionHeading>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10 sm:mt-20">
-          {works.slice(0, 2).map((w, i) => (
+          {works.slice(0, 2).map((w) => (
             <Link key={w.src} href={w.href} className="overflow-hidden group relative block">
               <Image
                 src={w.src}
@@ -26,7 +26,6 @@ export default function SelectedWork() {
                 width={w.width}
                 height={w.height}
                 sizes="(max-width: 640px) 100vw, 50vw"
-                priority={i === 0}
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
