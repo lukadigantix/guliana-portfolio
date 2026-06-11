@@ -20,29 +20,7 @@ export default function Home() {
       <WhatWeDesign />
       <CreativeNetwork />
       <HowWeWork />
-      <div className="relative overflow-hidden">
-        <Contact />
-        <div
-          className="hidden md:block"
-          style={{
-            position: 'absolute',
-            right: 'clamp(24px, 6vw, 110px)',
-            top: '50%',
-            width: 'clamp(180px, 22vw, 340px)',
-            transform: 'translateY(-50%) rotate(12deg)',
-            pointerEvents: 'none',
-            zIndex: 10,
-          }}
-        >
-          <Image
-            src="/unfold-logo-black.svg"
-            alt=""
-            width={340}
-            height={340}
-            style={{ width: '100%', height: 'auto' }}
-          />
-        </div>
-      </div>
+      <Contact />
     </main>
   );
 }
